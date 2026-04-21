@@ -5,6 +5,5 @@
   "lastName": "Doe",
   "password": "password123",
   "phoneNumber": "+1234567890",
-  "category": "X",
-  "createdAt": "2025-01-01T00:00:00Z"
+  "category": "X"
 }

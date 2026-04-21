@@ -23,10 +23,13 @@ public class DriverController {
     }
 
     @PostMapping
-    public ResponseEntity<Driver> createDriver(@RequestBody Driver driver) {
-        Driver savedDriver = driverService.save(driver);
-        return ResponseEntity.status(HttpStatus.CREATED).body(savedDriver);
+public ResponseEntity<Driver> createDriver(@RequestBody Driver driver) {
+    if (driver.getCreatedAt() != null) {
+        return ResponseEntity.badRequest().build();
     }
+    Driver savedDriver = driverService.save(driver);
+    return ResponseEntity.status(HttpStatus.CREATED).body(savedDriver);
+}
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteDriver(@PathVariable Long id) {
