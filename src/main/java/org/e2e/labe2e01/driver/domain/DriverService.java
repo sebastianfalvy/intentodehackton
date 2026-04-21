@@ -21,11 +21,9 @@ public class DriverService {
     }
 
     public Driver save(Driver driver) {
-        if (driver.getCreatedAt() == null) {
-            driver.setCreatedAt(ZonedDateTime.now());
-        }
-        return driverRepository.save(driver);
-    }
+    driver.setCreatedAt(ZonedDateTime.now());
+    return driverRepository.save(driver);
+}
 
     public void deleteById(Long id) {
         driverRepository.deleteById(id);

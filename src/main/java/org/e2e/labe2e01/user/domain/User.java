@@ -20,8 +20,6 @@ import java.time.ZonedDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id", scope = User.class)
-// FIX: Le dice a Jackson qué tipo concreto instanciar al deserializar
-// Usa el campo "role" para decidir: DRIVER → Driver, PASSENGER → Passenger
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "role", visible = true, defaultImpl = Passenger.class)
 @JsonSubTypes({
     @JsonSubTypes.Type(value = Driver.class, name = "DRIVER"),
