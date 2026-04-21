@@ -1,11 +1,15 @@
 package org.e2e.labe2e01.user.domain;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.e2e.labe2e01.driver.domain.Driver;
+import org.e2e.labe2e01.passenger.domain.Passenger;
 
 import java.time.ZonedDateTime;
 
@@ -16,6 +20,14 @@ import java.time.ZonedDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id", scope = User.class)
+// FIX: Le dice a Jackson qué tipo concreto instanciar al deserializar
+// Usa el campo "role" para decidir: DRIVER → Driver, PASSENGER → Passenger
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = "role", visible = true, defaultImpl = Passenger.class)
+@JsonSubTypes({
+    @JsonSubTypes.Type(value = Driver.class, name = "DRIVER"),
+    @JsonSubTypes.Type(value = Passenger.class, name = "PASSENGER"),
+    @JsonSubTypes.Type(value = Passenger.class, name = "ADMIN")
+})
 public abstract class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
