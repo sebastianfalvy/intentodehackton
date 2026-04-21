@@ -1,6 +1,5 @@
 package org.e2e.labe2e01.vehicle.infrastructure;
 
-import org.e2e.labe2e01.AbstractContainerBaseTest;
 import org.e2e.labe2e01.utils.parameters.vehicle.VehicleParameterResolver;
 import org.e2e.labe2e01.utils.parameters.vehicle.annotations.BasicVehicle;
 import org.e2e.labe2e01.utils.parameters.vehicle.annotations.PersistedVehicle;
@@ -11,7 +10,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 
@@ -21,9 +19,8 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 @DataJpaTest
-@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @ExtendWith({VehicleParameterResolver.class})
-class VehicleRepositoryTest extends AbstractContainerBaseTest {
+class VehicleRepositoryTest {
     @Autowired
     private VehicleRepository vehicleRepository;
 

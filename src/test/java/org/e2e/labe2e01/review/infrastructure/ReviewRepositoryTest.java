@@ -1,6 +1,5 @@
 package org.e2e.labe2e01.review.infrastructure;
 
-import org.e2e.labe2e01.AbstractContainerBaseTest;
 import org.e2e.labe2e01.coordinate.domain.Coordinate;
 import org.e2e.labe2e01.driver.domain.Category;
 import org.e2e.labe2e01.driver.domain.Driver;
@@ -13,7 +12,6 @@ import org.e2e.labe2e01.vehicle.domain.Vehicle;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 
@@ -23,8 +21,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 @DataJpaTest
-@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-class ReviewRepositoryTest extends AbstractContainerBaseTest {
+class ReviewRepositoryTest {
     @Autowired
     private ReviewRepository reviewRepository;
 

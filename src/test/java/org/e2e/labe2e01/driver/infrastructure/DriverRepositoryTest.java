@@ -1,6 +1,5 @@
 package org.e2e.labe2e01.driver.infrastructure;
 
-import org.e2e.labe2e01.AbstractContainerBaseTest;
 import org.e2e.labe2e01.coordinate.domain.Coordinate;
 import org.e2e.labe2e01.driver.domain.Category;
 import org.e2e.labe2e01.driver.domain.Driver;
@@ -14,7 +13,6 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -26,9 +24,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @DataJpaTest
-@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @ExtendWith({UserParameterResolver.class})
-class DriverRepositoryTest extends AbstractContainerBaseTest {
+class DriverRepositoryTest {
     @Autowired
     private DriverRepository driverRepository;
 
