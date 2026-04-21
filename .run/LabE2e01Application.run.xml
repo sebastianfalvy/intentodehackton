@@ -3,7 +3,7 @@
     <option name="envFilePaths">
       <option value="$PROJECT_DIR$/.env" />
     </option>
-    <module name="lab-e2e-01" />
+    <module name="demosass" />
     <selectedOptions>
       <option name="environmentVariables" />
     </selectedOptions>

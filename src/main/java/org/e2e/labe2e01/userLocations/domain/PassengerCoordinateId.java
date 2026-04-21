@@ -15,6 +15,9 @@ import java.util.Objects;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PassengerCoordinateId implements Serializable {
+    private Long passengerId;
+    private Long coordinateId;
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
